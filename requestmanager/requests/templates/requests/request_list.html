@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request List</title>
+</head>
+<body>
+    <h1>Request List</h1>
+    <ul>
+        {% for request in requests %}
+            <li>{{ request.name }} ({{ request.email }}) - {{ request.submitted_at }}: {{ request.message }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_request' %}">Create New Request</a>
+</body>
+</html>
