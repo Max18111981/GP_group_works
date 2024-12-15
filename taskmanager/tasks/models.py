@@ -18,10 +18,18 @@ class User(models.Model):
         return self.username
 
 
+class TaskStatus(models.Model):
+  name = models.CharField(max_length=100)
+  description = models.TextField()
+
+  def __str__(self):
+      return self.name
+
+
 class Task(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    status = models.CharField(max_length=100)
+    status = models.ForeignKey(TaskStatus, on_delete=models.DO_NOTHING)
     created_at = models.DateTimeField(auto_now_add=True)
     due_date = models.DateField()
     project = models.ForeignKey(Project, on_delete=models.CASCADE)

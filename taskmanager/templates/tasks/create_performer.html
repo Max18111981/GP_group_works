@@ -1,0 +1,10 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+<h1>Создание исполнителя</h1>
+<form action="{% url 'performers_create' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  <!-- Отображаем форму -->
+    <button type="submit" class="btn btn-primary">Создать исполнителя</button>
+</form>
+{% endblock %}

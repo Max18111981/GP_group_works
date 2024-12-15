@@ -1,4 +1,4 @@
-{% extends 'tasks/base.html' %}
+{% extends 'tasks/../project/../tasks/base.html' %}
 
 {% block content %}
   <h1>Список проектов</h1>
@@ -11,7 +11,7 @@
             <h5 class="card-title">{{ project.name }}</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">{{ project.created_at }}</h6>
             <pre class="card-text">{{ project.description }}</pre>
-            <a href="{% url 'project' project.id %}" class="card-link">Посмотреть проект</a>
+            <a href="{% url 'projects_creat' project.id %}" class="card-link">Посмотреть проект</a>
           </div>
         </div>
       </div>
@@ -22,7 +22,7 @@
             <h5 class="card-title">Еще нет проектов</h5>
             <h6 class="card-subtitle mb-2 text-body-secondary">Создайте что-бы улучшить свой проект-менеджмент</h6>
             <p class="card-text">Проект должен нести определенный смысл, в него будут добавляться задачи, все структурировано</p>
-            <a href="#" class="card-link">Создать проект</a>
+            <a href="{% url 'projects_create' %}" class="card-link">Создать проект</a>
           </div>
         </div>
       </div>
